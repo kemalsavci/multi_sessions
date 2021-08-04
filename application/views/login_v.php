@@ -11,7 +11,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 offset-md-3 bg-light">
-            <form action="<?php echo base_url("giris-yap"); ?>">
+            <form action="<?php echo base_url("giris-yap"); ?>" method="post">
                 <div class="form-group">
                     <label>E-posta Adresiniz</label>
                     <input type="email" class="form-control" name="eposta" placeholder="E-posta">
