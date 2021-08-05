@@ -11,6 +11,31 @@ class Users extends CI_Controller
         echo "hoppala";
     }
     public function login(){
+
+        $this->load->library("form_validation");
+
+        $this->form_validation->set_rules("eposta","E-posta","required|trim|valid_email");
+        $this->form_validation->set_rules("sifre","Şifre","required|trim");
+        $this->form_validation->set_message(array(
+            "required"      => "<b>{field}</b> alanını boş bırakamazsınız",
+            "valid_email"   => "Lütfen geçerli bir email adresi giriniz"
+        ));
+
+        if($this->form_validation->run() === FALSE){
+
+            $viewdata = new stdClass();
+            $viewdata->form_error = true;
+
+            $this->load->view("login_v", $viewdata);
+        }else{
+            $user = $this->user_model->get(array(
+                "email" =>$this->input->post("eposta"),
+                "password" =>$this->input->post("sifre")
+            )
+            );
+            print_r($user);
+        }
+
         $this->load->view("homepage_v");
     }
     public function login_form(){

@@ -15,10 +15,16 @@
                 <div class="form-group">
                     <label>E-posta Adresiniz</label>
                     <input type="email" class="form-control" name="eposta" placeholder="E-posta">
+                    <?php if(isset($form_error)) { ?>
+                        <small class="form-group pull-right"><?php echo form_error("eposta") ?></small>
+                    <?php } ?>
                 </div>
                 <div class="form-group">
                     <label>Şifre</label>
                     <input type="password" class="form-control" name="sifre" placeholder="Şifre">
+                    <?php if(isset($form_error)) { ?>
+                        <small class="form-group pull-right"><?php echo form_error("sifre") ?></small>
+                    <?php } ?>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">Giriş</button>
             </form>
