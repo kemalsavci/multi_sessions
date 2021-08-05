@@ -1,11 +1,13 @@
 <?php
 
-
 class Users extends CI_Controller
 {
+
     public function __construct()
     {
         parent::__construct();
+        $this->load->model("user_model");
+
     }
     public function index(){
         echo "hoppala";
@@ -28,15 +30,16 @@ class Users extends CI_Controller
 
             $this->load->view("login_v", $viewdata);
         }else{
-            $user = $this->user_model->get(array(
-                "email" =>$this->input->post("eposta"),
-                "password" =>$this->input->post("sifre")
-            )
+            //var_dump($this);
+            $user = $this->user_model->get(
+                array(
+                    "email" => $this->input->post("eposta"),
+                    "password"  => $this->input->post("sifre")
+                )
             );
             print_r($user);
         }
-
-        $this->load->view("homepage_v");
+        //$this->load->view("homepage_v");
     }
     public function login_form(){
         $this->load->view("login_v");
