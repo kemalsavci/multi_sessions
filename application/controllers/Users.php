@@ -6,8 +6,9 @@ class Users extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->library(['form_validation']);
         $this->load->model("user_model");
-
+        $this->load->library('session');
     }
     public function index(){
         echo "hoppala";
@@ -37,7 +38,19 @@ class Users extends CI_Controller
                     "password"  => $this->input->post("sifre")
                 )
             );
-            print_r($user);
+            if($user){
+                if($this->session->userdata("user_list")){
+                    $user_list = $this->session->userdata("user_list");
+                }else{
+                    $user_list = [];
+                }
+                $user_list[$user->email] = $user;
+                $this->session->set_userdata("user_list",$user_list);
+                print_r($user_list);
+
+            }else{
+                $this->load->view("login_v");
+            }
         }
         //$this->load->view("homepage_v");
     }
