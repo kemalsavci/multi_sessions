@@ -35,7 +35,7 @@ class Users extends CI_Controller
             $user = $this->user_model->get(
                 array(
                     "email" => $this->input->post("eposta"),
-                    "password"  => $this->input->post("sifre")
+                    "password"  => md5($this->input->post("sifre"))
                 )
             );
             if($user){
@@ -44,9 +44,10 @@ class Users extends CI_Controller
                 }else{
                     $user_list = [];
                 }
-                $user_list[$user->email] = $user;
+                $user_list[md5($user->email)] = $user;
                 $this->session->set_userdata("user_list",$user_list);
                 print_r($user_list);
+                redirect(base_url("anasayfa/" .md5($user->email)));
 
             }else{
                 $this->load->view("login_v");
@@ -56,5 +57,8 @@ class Users extends CI_Controller
     }
     public function login_form(){
         $this->load->view("login_v");
+    }
+    public function sil(){
+        $this->session->unset_userdata("user_list");
     }
 }

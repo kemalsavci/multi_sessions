@@ -3,19 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Anasayfa</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap.css"); ?>">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <a class="navbar-brand" href="#"><?php echo $user->full_name; ?></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="nav navbar-nav pull-right">
-            <li><a href="#">Çıkış</a></li>
-        </ul>
+    <div class="dropdown navbar-nav ml-auto" class="navbar-nav ml-auto">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            Dropdown button
+        </button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="<?php echo base_url("cikis"); ?>">Çıkış</a>
+            <a target="_blank" class="dropdown-item" href="<?php echo base_url("giris"); ?>">Farklı bir hesap ile oturum aç</a>
+        </div>
     </div>
 </nav><br><br>
 <div class="container">
@@ -49,5 +56,8 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" src="<?php echo base_url("assets/js/bootstrap.js")?>"></script>
+<script type="text/javascript" src="<?php echo base_url("assets/js/bootstrap.bundle.js")?>"></script>
+<script type="text/javascript" src="<?php echo base_url("assets/js/jquery-3.6.0.min.js")?>"></script>
 </body>
 </html>
