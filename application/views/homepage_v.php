@@ -23,7 +23,7 @@
             <?php foreach ($user_list as $item) { ?>
                 <?php if(md5($item->email) != md5($user->email)) { ?>
                 <li>
-                    <a target="_blank" class="dropdown-item" href="<?php echo base_url("anasayfa/" . md5($user->email)) ;?>"><?php echo $item->full_name; ?> ile oturum aç</a>
+                    <a target="_blank" class="dropdown-item" href="<?php echo base_url("anasayfa/" . md5($item->email)) ;?>"><?php echo $item->full_name; ?> ile oturum aç</a>
                 </li>
                 <?php } ?>
             <?php } ?>
