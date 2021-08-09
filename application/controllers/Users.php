@@ -11,7 +11,15 @@ class Users extends CI_Controller
         $this->load->library('session');
     }
     public function index(){
-        echo "hoppala";
+        $user_list = $this->session->userdata("user_list");
+
+        if($user_list){
+            $user = reset($user_list);
+            redirect(base_url("anasayfa/" . md5($user->email)));
+        }
+        else{
+            redirect("giris");
+        }
     }
     public function login(){
 
