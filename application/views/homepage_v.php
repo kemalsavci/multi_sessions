@@ -15,13 +15,22 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="dropdown navbar-nav ml-auto" class="navbar-nav ml-auto">
-        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+    <div class="dropdown navbar-nav ml-auto btn-group dropleft" class="navbar-nav ml-auto">
+        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
             İşlemler
         </button>
         <div class="dropdown-menu">
-            <a class="dropdown-item" href="<?php echo base_url("cikis/" . md5($user->email)) ;?>">Çıkış</a>
-            <a target="_blank" class="dropdown-item" href="<?php echo base_url("giris"); ?>">Farklı bir hesap ile oturum aç</a>
+            <?php foreach ($user_list as $item) { ?>
+                <?php if(md5($item->email) != md5($user->email)) { ?>
+                <li>
+                    <a target="_blank" class="dropdown-item" href="<?php echo base_url("anasayfa/" . md5($user->email)) ;?>"><?php echo $item->full_name; ?> ile oturum aç</a>
+                </li>
+                <?php } ?>
+            <?php } ?>
+            <li role="separator" class="dropdown-divider"></li>
+            <li><a target="_blank" class="dropdown-item" href="<?php echo base_url("giris"); ?>">Farklı bir hesap ile oturum aç</a></li>
+            <li role="seperator" class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="<?php echo base_url("cikis/" . md5($user->email)) ;?>">Çıkış</a></li>
         </div>
     </div>
 </nav><br><br>

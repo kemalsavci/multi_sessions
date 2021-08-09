@@ -27,7 +27,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cc8370dd-9059-45a8-88fc-a7f60922e263" name="Default Changelist" comment="czzz">
-      <change afterPath="$PROJECT_DIR$/application/models/User_product_model.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Home.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/homepage_v.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/homepage_v.php" afterDir="false" />
@@ -74,7 +73,7 @@
       <workItem from="1628150350074" duration="580000" />
       <workItem from="1628160484414" duration="11542000" />
       <workItem from="1628233916151" duration="15974000" />
-      <workItem from="1628493138113" duration="5524000" />
+      <workItem from="1628493138113" duration="7268000" />
     </task>
     <task id="LOCAL-00001" summary="czzz">
       <created>1627980344617</created>
