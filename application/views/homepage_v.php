@@ -17,10 +17,10 @@
     </button>
     <div class="dropdown navbar-nav ml-auto" class="navbar-nav ml-auto">
         <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-            Dropdown button
+            İşlemler
         </button>
         <div class="dropdown-menu">
-            <a class="dropdown-item" href="<?php echo base_url("cikis"); ?>">Çıkış</a>
+            <a class="dropdown-item" href="<?php echo base_url("cikis/" . md5($user->email)) ;?>">Çıkış</a>
             <a target="_blank" class="dropdown-item" href="<?php echo base_url("giris"); ?>">Farklı bir hesap ile oturum aç</a>
         </div>
     </div>

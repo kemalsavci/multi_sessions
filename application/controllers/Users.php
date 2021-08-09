@@ -58,7 +58,16 @@ class Users extends CI_Controller
     public function login_form(){
         $this->load->view("login_v");
     }
+    public function logout($id){
+        $user_list = $this->session->userdata("user_list");
+        unset($user_list[$id]);
+        $this->session->set_userdata("user_list",$user_list);
+        redirect("giris");
+    }
     public function sil(){
         $this->session->unset_userdata("user_list");
+    }
+    public function listt(){
+        print_r($this->session->userdata("user_list"));
     }
 }
